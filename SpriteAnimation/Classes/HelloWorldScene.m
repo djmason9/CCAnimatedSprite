@@ -62,6 +62,9 @@
         CCButton *manualAnimationButton = [CCButton buttonWithTitle:@"Manual animation"];
         [manualAnimationButton setTarget:self selector:@selector(manualAnimationButtonTouched)];
         
+        CCButton *loopAnimationOnceButton = [CCButton buttonWithTitle:@"Loop Once"];
+        [loopAnimationOnceButton setTarget:self selector:@selector(onceAnimationButtonTouched)];
+        
         CCLayoutBox *layoutBox = [[CCLayoutBox alloc] init];
         layoutBox.anchorPoint = ccp(0.5f, 0.5f);
         [layoutBox addChild:runAnimationButton];
@@ -69,6 +72,7 @@
         [layoutBox addChild:stopAnimationButton];
         [layoutBox addChild:customFrameButton];
         [layoutBox addChild:manualAnimationButton];
+        [layoutBox addChild:loopAnimationOnceButton];
 
         layoutBox.spacing = 10.f;
         layoutBox.direction = CCLayoutBoxDirectionHorizontal;
@@ -117,6 +121,11 @@
     
     // run loaded animation once
     [animatedSprite runAction:animation];
+}
+
+-(void)onceAnimationButtonTouched{
+
+    [animatedSprite runAnimation:@"animation_knight" withCount:1];
 }
 
 @end

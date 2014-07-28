@@ -78,7 +78,6 @@ static NSMutableArray *chachedSprites;
 }
 
 #pragma mark - Animation Handling
-
 - (void)addAnimationwithDelayBetweenFrames:(float)delay name:(NSString *)animationName {
     NSMutableArray *animationFrames = [NSMutableArray array];
     
@@ -100,6 +99,17 @@ static NSMutableArray *chachedSprites;
     
     // store this action, connected to the animationName
     self.animations[animationName] = animationAction;
+}
+
+-(void)runAnimation:(NSString*) animationName withCount:(int)count{
+    if (self.currentAnimation) {
+        [self stopAnimation];
+    }
+    
+    CCActionAnimate *animationAction = self.animations[animationName];
+    CCActionRepeat * repeatingAnimation = [CCActionRepeat actionWithAction:animationAction times:count];
+    [self runAction:repeatingAnimation];
+    self.currentAnimation = repeatingAnimation;
 }
 
 - (void)runAnimation:(NSString*)animationName {

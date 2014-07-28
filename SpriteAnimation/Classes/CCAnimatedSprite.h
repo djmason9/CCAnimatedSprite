@@ -37,6 +37,13 @@
 + (instancetype)animatedSpriteWithPlist:(NSString*)plistName;
 
 /**
+ Runs an animation in a given count.
+ 
+ @param animationName this name is used to reference an animation that has been created earlier
+ */
+-(void)runAnimation:(NSString*) animationName withCount:(int)count;
+
+/**
  Creates an animation.
  
  @param delay the amount of seconds each frame shall be presented before switching to the next animation frame
