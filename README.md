@@ -36,7 +36,13 @@ Straightforward:
 Manually sets a frame. Does not stop any running animation. The image name needs to be contained in the plist-File which was used to initialize this CCAnimatedSprite instance.
     
     [animatedSprite setFrame:@"animation_knight-1.png"];
+
+####Set a loop count for the animation:
+Manually sets a loop count. The image name needs to be contained in the plist-File which was used to initialize this CCAnimatedSprite instance.
     
+    [animatedSprite runAnimation:@"animation_knight" withCount:1];
+    
+        
 ####Access animation actions:
 If you for any reason need to perform animations manually, for example if you want to run an animation only once instead of looping it, you can use *animationByName* to access the CCActionAnimate objects for each animation:
     
